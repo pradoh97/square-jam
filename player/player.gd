@@ -13,17 +13,11 @@ func _input(event):
 		if movement_tween and movement_tween.is_running():
 			movement_tween.pause()
 			movement_tween.custom_step(1.1)
-		$CollisionShape2D.set_deferred("position", Vector2(movement_step/scale.x, 0))
 		movement_tween = create_tween()
 		movement_tween.set_ease(Tween.EASE_OUT)
 		movement_tween.set_trans(Tween.TRANS_QUINT)
-		movement_tween.tween_property($Sprite2D, "position:x", movement_step/scale.x, 0.5)
+		movement_tween.tween_property(self, "global_position:x", global_position.x + movement_step, 0.5)
 		movement_tween.play()
-		movement_tween.finished.connect(func():
-			$CollisionShape2D.set_deferred("position", Vector2(0,0))
-			$Sprite2D.set_deferred("position", Vector2(0,0))
-			self.global_position.x += movement_step
-		)
 
 func respawn():
 	var particles = $CPUParticles2D.duplicate()
