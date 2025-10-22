@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://doepcn6153ad7"]
+
+[ext_resource type="Script" uid="uid://d2kveopb5q6it" path="res://player/player.gd" id="1_rkbax"]
+[ext_resource type="Texture2D" uid="uid://tt43tvxwo20e" path="res://icon.svg" id="2_g1dw6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x25rp"]
+size = Vector2(116, 116)
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_rkbax")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_g1dw6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x25rp")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 32
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 24.0
+direction = Vector2(0, -1)
+spread = 12.35
+initial_velocity_min = 360.0
+initial_velocity_max = 360.0
+linear_accel_min = 100.0
+linear_accel_max = 100.0
