@@ -1,0 +1,135 @@
+[gd_scene load_steps=9 format=3 uid="uid://yjx67y2cqi8c"]
+
+[ext_resource type="PackedScene" uid="uid://doepcn6153ad7" path="res://player/player.tscn" id="1_46lwt"]
+[ext_resource type="Script" uid="uid://vxjlfc17d6vb" path="res://levels/grid.gd" id="2_x25rp"]
+[ext_resource type="Script" uid="uid://4x76mhtiushj" path="res://levels/trap.gd" id="3_gmgay"]
+
+[sub_resource type="Gradient" id="Gradient_srpys"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_46lwt"]
+gradient = SubResource("Gradient_srpys")
+
+[sub_resource type="Gradient" id="Gradient_x25rp"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.51449275)
+colors = PackedColorArray(0.2784314, 0.54901963, 0.7490196, 1, 0.21176471, 0.23921569, 0.32156864, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gmgay"]
+gradient = SubResource("Gradient_x25rp")
+fill_to = Vector2(0.12376238, 0)
+repeat = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x25rp"]
+size = Vector2(64, 128)
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Grid" type="Node2D" parent="."]
+modulate = Color(1, 1, 1, 0.5058824)
+script = ExtResource("2_x25rp")
+
+[node name="HorizontalLine" type="Line2D" parent="Grid"]
+points = PackedVector2Array(-576, -324, -576, 324)
+width = 2.0
+
+[node name="VerticalLine" type="Line2D" parent="Grid"]
+points = PackedVector2Array(577, -320, -577, -320)
+width = 2.0
+
+[node name="Player" parent="." instance=ExtResource("1_46lwt")]
+position = Vector2(-544, -256)
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_46lwt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Wall" type="Area2D" parent="."]
+script = ExtResource("3_gmgay")
+movement_step = 128
+
+[node name="Polygon2D" type="Polygon2D" parent="Wall"]
+texture = SubResource("GradientTexture2D_gmgay")
+polygon = PackedVector2Array(0, 0, 64, 0, 64, 128, 0, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(32, 64)
+shape = SubResource("RectangleShape2D_x25rp")
+
+[node name="Wall2" type="Area2D" parent="."]
+position = Vector2(192, 64)
+rotation = 3.1415927
+script = ExtResource("3_gmgay")
+movement_step = 128
+active = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Wall2"]
+texture = SubResource("GradientTexture2D_gmgay")
+polygon = PackedVector2Array(0, 0, 64, 0, 64, 128, 0, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(32, 64)
+shape = SubResource("RectangleShape2D_x25rp")
+
+[node name="Wall3" type="Area2D" parent="."]
+position = Vector2(-448, 64)
+rotation = 3.1415927
+script = ExtResource("3_gmgay")
+movement_step = 128
+active = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Wall3"]
+texture = SubResource("GradientTexture2D_gmgay")
+polygon = PackedVector2Array(0, 0, 64, 0, 64, 128, 0, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
+position = Vector2(32, 64)
+shape = SubResource("RectangleShape2D_x25rp")
+
+[node name="Whites" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Blacks" type="Timer" parent="."]
+autostart = true
+
+[node name="Eights" type="Timer" parent="."]
+autostart = true
+
+[node name="Spike" type="Area2D" parent="."]
+position = Vector2(256, 64)
+script = ExtResource("3_gmgay")
+
+[node name="Polygon2D" type="Polygon2D" parent="Spike"]
+polygon = PackedVector2Array(32, -64, 0, 0, 64, 0)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Spike"]
+polygon = PackedVector2Array(32, -64, 64, 0, 0, 0)
+
+[node name="Spike2" type="Area2D" parent="."]
+position = Vector2(448, -64)
+rotation = -3.1415927
+script = ExtResource("3_gmgay")
+active = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Spike2"]
+polygon = PackedVector2Array(32, -64, 0, 0, 64, 0)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Spike2"]
+polygon = PackedVector2Array(32, -64, 64, 0, 0, 0)
+
+[connection signal="timeout" from="Whites" to="Wall" method="_on_whites_timeout"]
+[connection signal="timeout" from="Whites" to="Wall2" method="_on_whites_timeout"]
+[connection signal="timeout" from="Whites" to="Wall3" method="_on_whites_timeout"]
+[connection signal="timeout" from="Blacks" to="Spike" method="_on_blacks_timeout"]
+[connection signal="timeout" from="Blacks" to="Spike2" method="_on_blacks_timeout"]
