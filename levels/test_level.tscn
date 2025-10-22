@@ -39,7 +39,7 @@ points = PackedVector2Array(577, -320, -577, -320)
 width = 2.0
 
 [node name="Player" parent="." instance=ExtResource("1_46lwt")]
-position = Vector2(-544, -256)
+position = Vector2(-544, -32)
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
