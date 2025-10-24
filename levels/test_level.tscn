@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://yjx67y2cqi8c"]
+[gd_scene load_steps=15 format=3 uid="uid://yjx67y2cqi8c"]
 
 [ext_resource type="PackedScene" uid="uid://doepcn6153ad7" path="res://player/player.tscn" id="1_46lwt"]
 [ext_resource type="Script" uid="uid://bxj35lr18q8nq" path="res://levels/moving_compass_feedback.gd" id="1_o6mel"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://4x76mhtiushj" path="res://levels/trap.gd" id="3_gmgay"]
 [ext_resource type="Script" uid="uid://buq02kmcuechh" path="res://levels/compass_feedback.gd" id="4_w7r7j"]
 [ext_resource type="Script" uid="uid://b6opfw3ynqj63" path="res://levels/blacks.gd" id="5_e7anx"]
+[ext_resource type="Script" uid="uid://2aeyipefdu5c" path="res://levels/looping_music.gd" id="8_ly3hx"]
+[ext_resource type="AudioStream" uid="uid://bo885q0fx5f8b" path="res://running-night-393139.mp3" id="9_4n8tn"]
 
 [sub_resource type="Gradient" id="Gradient_srpys"]
 offsets = PackedFloat32Array(0)
@@ -30,6 +32,7 @@ size = Vector2(64, 128)
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_ur00s")
+bpm = 104.0
 
 [node name="MovingCompassFeedback" type="Line2D" parent="."]
 position = Vector2(-32, -288)
@@ -216,6 +219,19 @@ polygon = PackedVector2Array(32, -64, 64, 0, 0, 0)
 
 [node name="ForgivenessReleaseTimer" type="Timer" parent="Hazards/Spike2"]
 
+[node name="LoopingMusic" type="Node2D" parent="."]
+script = ExtResource("8_ly3hx")
+
+[node name="Music" type="AudioStreamPlayer" parent="LoopingMusic"]
+stream = ExtResource("9_4n8tn")
+
+[node name="Music2" type="AudioStreamPlayer" parent="LoopingMusic"]
+stream = ExtResource("9_4n8tn")
+
+[node name="Looper" type="Timer" parent="LoopingMusic"]
+wait_time = 108.67
+one_shot = true
+
 [connection signal="timeout" from="Blacks" to="MovingCompassFeedback" method="_on_blacks_timeout"]
 [connection signal="timeout" from="Blacks" to="CompassFeedback" method="_on_blacks_timeout"]
 [connection signal="timeout" from="Blacks" to="Hazards/Wall" method="_on_blacks_timeout"]
@@ -226,3 +242,4 @@ polygon = PackedVector2Array(32, -64, 64, 0, 0, 0)
 [connection signal="timeout" from="Blacks" to="Hazards/Spike4" method="_on_blacks_timeout"]
 [connection signal="timeout" from="Blacks" to="Hazards/Spike3" method="_on_blacks_timeout"]
 [connection signal="timeout" from="Blacks" to="Hazards/Spike2" method="_on_blacks_timeout"]
+[connection signal="timeout" from="LoopingMusic/Looper" to="LoopingMusic" method="_on_looper_timeout"]
