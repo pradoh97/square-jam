@@ -9,6 +9,7 @@ var blacks_duration = 1.0
 var last_compass_played = 0
 
 func _ready():
+	blacks_duration = 60/get_parent().get_parent().bpm
 	$ForgivenessAttackTimer.wait_time = blacks_duration*forgiveness
 	$ForgivenessAttackTimer.one_shot = true
 	$ForgivenessAttackTimer.timeout.connect(func(): $CollisionShape2D.set_deferred("disabled", false))
