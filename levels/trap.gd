@@ -2,7 +2,7 @@ extends Area2D
 @export var movement_step = 64
 @export var forgiveness = 0.1
 @export var active = false
-@export var use_tween = false
+@export var use_tween = true
 @export var compass_duration = 1
 
 var blacks_duration = 1.0
@@ -32,18 +32,18 @@ func move():
 		if use_tween:
 			tween.set_ease(Tween.EASE_OUT)
 			tween.set_trans(Tween.TRANS_QUINT)
-			tween.tween_property(self, "global_position:y", global_position.y - movement_step, 0.5)
-			tween.finished.connect(func(): $CollisionShape2D.set_deferred("disabled", false))
+			tween.tween_property(self, "global_position:y", global_position.y - movement_step, blacks_duration*0.25)
+		else:
+			global_position.y -= movement_step
 		$ForgivenessAttackTimer.start()
 		$CollisionShape2D.set_deferred("disabled", true)
-		global_position.y -= movement_step
 	elif not active:
 		if use_tween:
 			tween.set_ease(Tween.EASE_OUT)
 			tween.set_trans(Tween.TRANS_QUINT)
-			tween.tween_property(self, "global_position:y", global_position.y + movement_step, 0.5)
-			$CollisionShape2D.set_deferred("disabled", true)
-		global_position.y += movement_step
+			tween.tween_property(self, "global_position:y", global_position.y + movement_step, blacks_duration*0.25)
+		else:
+			global_position.y += movement_step
 
 
 func _on_blacks_timeout():
