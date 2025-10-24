@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2fkf2drct4ko"]
+
+[ext_resource type="Script" uid="uid://4x76mhtiushj" path="res://hazards/hazard.gd" id="1_pkw3l"]
+
+[node name="Spike" type="Area2D"]
+script = ExtResource("1_pkw3l")
+forgiveness = 0.15
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(32, -64, 0, 0, 64, 0)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(32, -64, 64, 0, 0, 0)
+
+[node name="ForgivenessAttackTimer" type="Timer" parent="."]
+
+[node name="ForgivenessReleaseTimer" type="Timer" parent="."]
