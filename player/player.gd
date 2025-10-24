@@ -6,24 +6,30 @@ var movement_step = 64
 var initial_pos: Vector2
 var movement_ongoing = false
 var movement_tween: Tween
+var distance_travelled: float = 0
+var movement_start_position: float = 0
+var is_moving: bool = false
 
 func _ready():
 	initial_pos = global_position
 
-func _input(event):
-	if event.is_action_pressed("move") and use_tween:
-		if movement_tween and movement_tween.is_running():
-			movement_tween.pause()
-			movement_tween.custom_step(1.1)
-		movement_tween = create_tween()
-		movement_tween.set_ease(Tween.EASE_OUT)
-		movement_tween.set_trans(Tween.TRANS_QUINT)
-		movement_tween.tween_property(self, "global_position:x", global_position.x + movement_step, 0.5)
-		movement_tween.play()
-	if event.is_action_pressed("move") and not use_tween:
-		global_position.x += movement_step
+func _physics_process(delta):
+	if Input.is_action_just_pressed("move") and not is_moving:
+		is_moving = true
+		movement_start_position = global_position.x
+		velocity.x = movement_step * delta * 1000
+	move_and_slide()
+	distance_travelled = global_position.x - movement_start_position
+	if (is_zero_approx(movement_step - distance_travelled) or distance_travelled > movement_step) and is_moving:
+		velocity.x = 0
+		global_position.x = movement_start_position + movement_step
+		is_moving = false
 
 func respawn():
+	is_moving = false
+	distance_travelled = 0
+	movement_start_position = 0
+	velocity.x = 0
 	var particles = $CPUParticles2D.duplicate()
 	get_parent().add_child(particles)
 	particles.global_position = $CPUParticles2D.global_position
