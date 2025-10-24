@@ -1,8 +1,9 @@
 extends Node2D
-var movement_step = 64
+class_name Grid
 
-func _ready():
-	var compensation_line = 1
+@export var compensation_line = 1
+
+func draw(movement_step = 0):
 	var horizontal_lines = get_viewport_rect().size.x / movement_step + compensation_line
 	var vertical_lines = get_viewport_rect().size.y / movement_step + compensation_line
 	for line in range(0, horizontal_lines):

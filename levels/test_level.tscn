@@ -1,14 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://yjx67y2cqi8c"]
+[gd_scene load_steps=10 format=3 uid="uid://yjx67y2cqi8c"]
 
 [ext_resource type="PackedScene" uid="uid://doepcn6153ad7" path="res://player/player.tscn" id="1_46lwt"]
-[ext_resource type="Script" uid="uid://bxj35lr18q8nq" path="res://levels/moving_compass_feedback.gd" id="1_o6mel"]
-[ext_resource type="Script" uid="uid://cmn1wcajj8cau" path="res://levels/test_level.gd" id="1_ur00s"]
-[ext_resource type="Script" uid="uid://vxjlfc17d6vb" path="res://levels/grid.gd" id="2_x25rp"]
-[ext_resource type="Script" uid="uid://4x76mhtiushj" path="res://levels/trap.gd" id="3_gmgay"]
-[ext_resource type="Script" uid="uid://buq02kmcuechh" path="res://levels/compass_feedback.gd" id="4_w7r7j"]
-[ext_resource type="Script" uid="uid://b6opfw3ynqj63" path="res://levels/blacks.gd" id="5_e7anx"]
-[ext_resource type="Script" uid="uid://2aeyipefdu5c" path="res://levels/looping_music.gd" id="8_ly3hx"]
-[ext_resource type="AudioStream" uid="uid://bo885q0fx5f8b" path="res://running-night-393139.mp3" id="9_4n8tn"]
+[ext_resource type="Script" uid="uid://cmn1wcajj8cau" path="res://levels/level.gd" id="1_ur00s"]
+[ext_resource type="PackedScene" uid="uid://o3078tpyrg2" path="res://helpers/compass_feedback.tscn" id="2_ur00s"]
+[ext_resource type="PackedScene" uid="uid://cbhw7ke4rkgcb" path="res://helpers/grid.tscn" id="5_wndkh"]
+[ext_resource type="PackedScene" uid="uid://v31f22m5y1nt" path="res://hazards/wall.tscn" id="7_4n8tn"]
+[ext_resource type="PackedScene" uid="uid://c2fkf2drct4ko" path="res://hazards/spike.tscn" id="7_ly3hx"]
+[ext_resource type="PackedScene" uid="uid://dodaer6dcobqc" path="res://helpers/looping_music.tscn" id="8_wndkh"]
 
 [sub_resource type="Gradient" id="Gradient_srpys"]
 offsets = PackedFloat32Array(0)
@@ -17,53 +15,19 @@ colors = PackedColorArray(0, 0, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_46lwt"]
 gradient = SubResource("Gradient_srpys")
 
-[sub_resource type="Gradient" id="Gradient_x25rp"]
-interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.51449275)
-colors = PackedColorArray(0.2784314, 0.54901963, 0.7490196, 1, 0.21176471, 0.23921569, 0.32156864, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gmgay"]
-gradient = SubResource("Gradient_x25rp")
-fill_to = Vector2(0.12376238, 0)
-repeat = 2
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x25rp"]
-size = Vector2(64, 128)
-
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_ur00s")
 bpm = 104.0
 
-[node name="MovingCompassFeedback" type="Line2D" parent="."]
-position = Vector2(-32, -288)
-rotation = 3.1415925
-points = PackedVector2Array(512, -63.99994, 448, -63.99994)
-width = 5.0
-script = ExtResource("1_o6mel")
+[node name="CompassFeedback" parent="." instance=ExtResource("2_ur00s")]
 
 [node name="Player" parent="." instance=ExtResource("1_46lwt")]
 position = Vector2(-544, -32)
 
-[node name="CompassFeedback" type="Line2D" parent="."]
-points = PackedVector2Array(-576, -320, -576, 320, 576, 320, 576, -320)
-closed = true
-script = ExtResource("4_w7r7j")
-
-[node name="Grid" type="Node2D" parent="."]
-modulate = Color(1, 1, 1, 0.21960784)
-script = ExtResource("2_x25rp")
-
-[node name="HorizontalLine" type="Line2D" parent="Grid"]
-points = PackedVector2Array(-576, -324, -576, 324)
-width = 2.0
-
-[node name="VerticalLine" type="Line2D" parent="Grid"]
-points = PackedVector2Array(577, -320, -577, -320)
-width = 2.0
+[node name="Grid" parent="." instance=ExtResource("5_wndkh")]
 
 [node name="Blacks" type="Timer" parent="."]
 autostart = true
-script = ExtResource("5_e7anx")
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
@@ -80,166 +44,33 @@ texture = SubResource("GradientTexture1D_46lwt")
 
 [node name="Hazards" type="Node2D" parent="."]
 
-[node name="Wall" type="Area2D" parent="Hazards"]
-script = ExtResource("3_gmgay")
-movement_step = 128
-compass_duration = 2
+[node name="Wall" parent="Hazards" instance=ExtResource("7_4n8tn")]
+active = true
 
-[node name="Polygon2D" type="Polygon2D" parent="Hazards/Wall"]
-texture = SubResource("GradientTexture2D_gmgay")
-polygon = PackedVector2Array(0, 0, 64, 0, 64, 128, 0, 128)
+[node name="Wall3" parent="Hazards" instance=ExtResource("7_4n8tn")]
+position = Vector2(-512, -64)
+active = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Wall"]
-position = Vector2(32, 64)
-shape = SubResource("RectangleShape2D_x25rp")
+[node name="Wall2" parent="Hazards" instance=ExtResource("7_4n8tn")]
+position = Vector2(64, -64)
 
-[node name="ForgivenessAttackTimer" type="Timer" parent="Hazards/Wall"]
-
-[node name="ForgivenessReleaseTimer" type="Timer" parent="Hazards/Wall"]
-
-[node name="Wall4" type="Area2D" parent="Hazards"]
+[node name="Wall4" parent="Hazards" instance=ExtResource("7_4n8tn")]
 position = Vector2(448, 0)
-script = ExtResource("3_gmgay")
-movement_step = 128
-compass_duration = 2
 
-[node name="Polygon2D" type="Polygon2D" parent="Hazards/Wall4"]
-texture = SubResource("GradientTexture2D_gmgay")
-polygon = PackedVector2Array(0, 0, 64, 0, 64, 128, 0, 128)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Wall4"]
-position = Vector2(32, 64)
-shape = SubResource("RectangleShape2D_x25rp")
-
-[node name="ForgivenessAttackTimer" type="Timer" parent="Hazards/Wall4"]
-
-[node name="ForgivenessReleaseTimer" type="Timer" parent="Hazards/Wall4"]
-
-[node name="Wall2" type="Area2D" parent="Hazards"]
-position = Vector2(128, 64)
-rotation = -3.1415925
-script = ExtResource("3_gmgay")
-movement_step = 128
-active = true
-compass_duration = 2
-
-[node name="Polygon2D" type="Polygon2D" parent="Hazards/Wall2"]
-texture = SubResource("GradientTexture2D_gmgay")
-polygon = PackedVector2Array(0, 0, 64, 0, 64, 128, 0, 128)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Wall2"]
-position = Vector2(32, 64)
-shape = SubResource("RectangleShape2D_x25rp")
-
-[node name="ForgivenessAttackTimer" type="Timer" parent="Hazards/Wall2"]
-
-[node name="ForgivenessReleaseTimer" type="Timer" parent="Hazards/Wall2"]
-
-[node name="Wall3" type="Area2D" parent="Hazards"]
-position = Vector2(-448, 64)
-rotation = -3.1415925
-script = ExtResource("3_gmgay")
-movement_step = 128
-active = true
-compass_duration = 2
-
-[node name="Polygon2D" type="Polygon2D" parent="Hazards/Wall3"]
-texture = SubResource("GradientTexture2D_gmgay")
-polygon = PackedVector2Array(0, 0, 64, 0, 64, 128, 0, 128)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hazards/Wall3"]
-position = Vector2(32, 64)
-shape = SubResource("RectangleShape2D_x25rp")
-
-[node name="ForgivenessAttackTimer" type="Timer" parent="Hazards/Wall3"]
-
-[node name="ForgivenessReleaseTimer" type="Timer" parent="Hazards/Wall3"]
-
-[node name="Spike" type="Area2D" parent="Hazards"]
+[node name="Spike" parent="Hazards" instance=ExtResource("7_ly3hx")]
 position = Vector2(256, 64)
-script = ExtResource("3_gmgay")
-forgiveness = 0.15
 
-[node name="Polygon2D" type="Polygon2D" parent="Hazards/Spike"]
-polygon = PackedVector2Array(32, -64, 0, 0, 64, 0)
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hazards/Spike"]
-polygon = PackedVector2Array(32, -64, 64, 0, 0, 0)
-
-[node name="ForgivenessAttackTimer" type="Timer" parent="Hazards/Spike"]
-
-[node name="ForgivenessReleaseTimer" type="Timer" parent="Hazards/Spike"]
-
-[node name="Spike4" type="Area2D" parent="Hazards"]
+[node name="Spike4" parent="Hazards" instance=ExtResource("7_ly3hx")]
 position = Vector2(384, 64)
-script = ExtResource("3_gmgay")
-forgiveness = 0.15
 
-[node name="Polygon2D" type="Polygon2D" parent="Hazards/Spike4"]
-polygon = PackedVector2Array(32, -64, 0, 0, 64, 0)
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hazards/Spike4"]
-polygon = PackedVector2Array(32, -64, 64, 0, 0, 0)
-
-[node name="ForgivenessAttackTimer" type="Timer" parent="Hazards/Spike4"]
-
-[node name="ForgivenessReleaseTimer" type="Timer" parent="Hazards/Spike4"]
-
-[node name="Spike3" type="Area2D" parent="Hazards"]
+[node name="Spike2" parent="Hazards" instance=ExtResource("7_ly3hx")]
 position = Vector2(256, -64)
-rotation = 3.1415925
-script = ExtResource("3_gmgay")
-forgiveness = 0.15
+rotation = -3.1415927
 active = true
 
-[node name="Polygon2D" type="Polygon2D" parent="Hazards/Spike3"]
-polygon = PackedVector2Array(32, -64, 0, 0, 64, 0)
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hazards/Spike3"]
-polygon = PackedVector2Array(32, -64, 64, 0, 0, 0)
-
-[node name="ForgivenessAttackTimer" type="Timer" parent="Hazards/Spike3"]
-
-[node name="ForgivenessReleaseTimer" type="Timer" parent="Hazards/Spike3"]
-
-[node name="Spike2" type="Area2D" parent="Hazards"]
+[node name="Spike3" parent="Hazards" instance=ExtResource("7_ly3hx")]
 position = Vector2(384, -64)
-rotation = 3.1415925
-script = ExtResource("3_gmgay")
-forgiveness = 0.15
+rotation = -3.1415927
 active = true
 
-[node name="Polygon2D" type="Polygon2D" parent="Hazards/Spike2"]
-polygon = PackedVector2Array(32, -64, 0, 0, 64, 0)
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hazards/Spike2"]
-polygon = PackedVector2Array(32, -64, 64, 0, 0, 0)
-
-[node name="ForgivenessAttackTimer" type="Timer" parent="Hazards/Spike2"]
-
-[node name="ForgivenessReleaseTimer" type="Timer" parent="Hazards/Spike2"]
-
-[node name="LoopingMusic" type="Node2D" parent="."]
-script = ExtResource("8_ly3hx")
-
-[node name="Music" type="AudioStreamPlayer" parent="LoopingMusic"]
-stream = ExtResource("9_4n8tn")
-
-[node name="Music2" type="AudioStreamPlayer" parent="LoopingMusic"]
-stream = ExtResource("9_4n8tn")
-
-[node name="Looper" type="Timer" parent="LoopingMusic"]
-wait_time = 108.67
-one_shot = true
-
-[connection signal="timeout" from="Blacks" to="MovingCompassFeedback" method="_on_blacks_timeout"]
-[connection signal="timeout" from="Blacks" to="CompassFeedback" method="_on_blacks_timeout"]
-[connection signal="timeout" from="Blacks" to="Hazards/Wall" method="_on_blacks_timeout"]
-[connection signal="timeout" from="Blacks" to="Hazards/Wall4" method="_on_blacks_timeout"]
-[connection signal="timeout" from="Blacks" to="Hazards/Wall2" method="_on_blacks_timeout"]
-[connection signal="timeout" from="Blacks" to="Hazards/Wall3" method="_on_blacks_timeout"]
-[connection signal="timeout" from="Blacks" to="Hazards/Spike" method="_on_blacks_timeout"]
-[connection signal="timeout" from="Blacks" to="Hazards/Spike4" method="_on_blacks_timeout"]
-[connection signal="timeout" from="Blacks" to="Hazards/Spike3" method="_on_blacks_timeout"]
-[connection signal="timeout" from="Blacks" to="Hazards/Spike2" method="_on_blacks_timeout"]
-[connection signal="timeout" from="LoopingMusic/Looper" to="LoopingMusic" method="_on_looper_timeout"]
+[node name="LoopingMusic" parent="." instance=ExtResource("8_wndkh")]
