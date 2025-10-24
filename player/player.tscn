@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://doepcn6153ad7"]
+[gd_scene load_steps=5 format=3 uid="uid://doepcn6153ad7"]
 
 [ext_resource type="Script" uid="uid://d2kveopb5q6it" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://tt43tvxwo20e" path="res://icon.svg" id="2_g1dw6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x25rp"]
 size = Vector2(116, 116)
+
+[sub_resource type="Gradient" id="Gradient_rkbax"]
+offsets = PackedFloat32Array(0.0955414, 0.28025478, 0.44585988, 0.611465, 0.79617834)
+colors = PackedColorArray(1, 0.3115897, 0.76811606, 1, 0.31746736, 0.7213567, 0.5199722, 1, 0.26142475, 0.69622964, 0.77594805, 1, 0.47966683, 0.61702996, 0.9535679, 1, 0.93659014, 0.8106444, 0.1470933, 1)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
@@ -31,3 +35,12 @@ initial_velocity_min = 360.0
 initial_velocity_max = 360.0
 linear_accel_min = 100.0
 linear_accel_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_rkbax")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
