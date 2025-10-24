@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://v31f22m5y1nt"]
+
+[ext_resource type="Script" uid="uid://4x76mhtiushj" path="res://hazards/hazard.gd" id="1_qium8"]
+
+[sub_resource type="Gradient" id="Gradient_x25rp"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.51449275)
+colors = PackedColorArray(0.2784314, 0.54901963, 0.7490196, 1, 0.21176471, 0.23921569, 0.32156864, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gmgay"]
+gradient = SubResource("Gradient_x25rp")
+fill_to = Vector2(0.12376238, 0)
+repeat = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x25rp"]
+size = Vector2(64, 128)
+
+[node name="Wall" type="Area2D"]
+script = ExtResource("1_qium8")
+movement_step = 128
+required_beats = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture = SubResource("GradientTexture2D_gmgay")
+polygon = PackedVector2Array(0, 0, 64, 0, 64, 128, 0, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 64)
+shape = SubResource("RectangleShape2D_x25rp")
+
+[node name="ForgivenessAttackTimer" type="Timer" parent="."]
+
+[node name="ForgivenessReleaseTimer" type="Timer" parent="."]

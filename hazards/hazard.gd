@@ -1,19 +1,20 @@
 extends Area2D
+class_name Hazard
+
 @export var movement_step = 64
 @export var forgiveness = 0.1
 @export var active = false
 @export var use_tween = true
-@export var compass_duration = 1
+@export var required_beats = 1
 
 var blacks_duration = 1.0
-var last_compass_played = 0
+var current_beat = 0
 
 func _ready():
-	blacks_duration = 60/get_parent().get_parent().bpm
 	$ForgivenessAttackTimer.wait_time = blacks_duration*forgiveness
 	$ForgivenessAttackTimer.one_shot = true
 	$ForgivenessAttackTimer.timeout.connect(func(): $CollisionShape2D.set_deferred("disabled", false))
-	$ForgivenessReleaseTimer.wait_time = compass_duration*blacks_duration - blacks_duration*forgiveness*compass_duration
+	$ForgivenessReleaseTimer.wait_time = required_beats*blacks_duration - blacks_duration*forgiveness*required_beats
 	$ForgivenessReleaseTimer.one_shot = true
 	$ForgivenessReleaseTimer.timeout.connect(func(): $CollisionShape2D.set_deferred("disabled", true))
 	body_entered.connect(_on_body_entered)
@@ -47,9 +48,9 @@ func move():
 
 
 func _on_blacks_timeout():
-	last_compass_played += 1
-	if last_compass_played == compass_duration:
-		last_compass_played = 0
+	current_beat += 1
+	if current_beat == required_beats:
+		current_beat = 0
 		move()
 		if active:
 			$ForgivenessReleaseTimer.start()

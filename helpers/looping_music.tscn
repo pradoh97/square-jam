@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dodaer6dcobqc"]
+
+[ext_resource type="Script" uid="uid://2aeyipefdu5c" path="res://helpers/looping_music.gd" id="1_tjyhv"]
+[ext_resource type="AudioStream" uid="uid://bo885q0fx5f8b" path="res://running-night-393139.mp3" id="2_2klff"]
+
+[node name="LoopingMusic" type="Node2D"]
+script = ExtResource("1_tjyhv")
+song = ExtResource("2_2klff")
+loop_time = 108.67
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+
+[node name="Music2" type="AudioStreamPlayer" parent="."]
+
+[node name="Looper" type="Timer" parent="."]
+
+[connection signal="timeout" from="Looper" to="." method="_on_looper_timeout"]
