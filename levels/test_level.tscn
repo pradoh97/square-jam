@@ -31,15 +31,15 @@ size = Vector2(64, 128)
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_ur00s")
 
-[node name="Player" parent="." instance=ExtResource("1_46lwt")]
-position = Vector2(-544, -32)
-
 [node name="MovingCompassFeedback" type="Line2D" parent="."]
 position = Vector2(-32, -288)
 rotation = 3.1415925
 points = PackedVector2Array(512, -63.99994, 448, -63.99994)
 width = 5.0
 script = ExtResource("1_o6mel")
+
+[node name="Player" parent="." instance=ExtResource("1_46lwt")]
+position = Vector2(-544, -32)
 
 [node name="CompassFeedback" type="Line2D" parent="."]
 points = PackedVector2Array(-576, -320, -576, 320, 576, 320, 576, -320)
@@ -155,6 +155,7 @@ shape = SubResource("RectangleShape2D_x25rp")
 [node name="Spike" type="Area2D" parent="Hazards"]
 position = Vector2(256, 64)
 script = ExtResource("3_gmgay")
+forgiveness = 0.15
 
 [node name="Polygon2D" type="Polygon2D" parent="Hazards/Spike"]
 polygon = PackedVector2Array(32, -64, 0, 0, 64, 0)
@@ -169,6 +170,7 @@ polygon = PackedVector2Array(32, -64, 64, 0, 0, 0)
 [node name="Spike4" type="Area2D" parent="Hazards"]
 position = Vector2(384, 64)
 script = ExtResource("3_gmgay")
+forgiveness = 0.15
 
 [node name="Polygon2D" type="Polygon2D" parent="Hazards/Spike4"]
 polygon = PackedVector2Array(32, -64, 0, 0, 64, 0)
@@ -184,6 +186,7 @@ polygon = PackedVector2Array(32, -64, 64, 0, 0, 0)
 position = Vector2(256, -64)
 rotation = 3.1415925
 script = ExtResource("3_gmgay")
+forgiveness = 0.15
 active = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Hazards/Spike3"]
@@ -200,6 +203,7 @@ polygon = PackedVector2Array(32, -64, 64, 0, 0, 0)
 position = Vector2(384, -64)
 rotation = 3.1415925
 script = ExtResource("3_gmgay")
+forgiveness = 0.15
 active = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Hazards/Spike2"]
@@ -215,10 +219,10 @@ polygon = PackedVector2Array(32, -64, 64, 0, 0, 0)
 [connection signal="timeout" from="Blacks" to="MovingCompassFeedback" method="_on_blacks_timeout"]
 [connection signal="timeout" from="Blacks" to="CompassFeedback" method="_on_blacks_timeout"]
 [connection signal="timeout" from="Blacks" to="Hazards/Wall" method="_on_blacks_timeout"]
+[connection signal="timeout" from="Blacks" to="Hazards/Wall4" method="_on_blacks_timeout"]
 [connection signal="timeout" from="Blacks" to="Hazards/Wall2" method="_on_blacks_timeout"]
 [connection signal="timeout" from="Blacks" to="Hazards/Wall3" method="_on_blacks_timeout"]
 [connection signal="timeout" from="Blacks" to="Hazards/Spike" method="_on_blacks_timeout"]
+[connection signal="timeout" from="Blacks" to="Hazards/Spike4" method="_on_blacks_timeout"]
 [connection signal="timeout" from="Blacks" to="Hazards/Spike3" method="_on_blacks_timeout"]
 [connection signal="timeout" from="Blacks" to="Hazards/Spike2" method="_on_blacks_timeout"]
-[connection signal="timeout" from="Blacks" to="Hazards/Spike4" method="_on_blacks_timeout"]
-[connection signal="timeout" from="Blacks" to="Hazards/Wall4" method="_on_blacks_timeout"]
