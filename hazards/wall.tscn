@@ -18,7 +18,7 @@ size = Vector2(64, 128)
 [node name="Wall" type="Area2D"]
 script = ExtResource("1_qium8")
 movement_step = 128
-compass_duration = 2
+required_beats = 2
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 texture = SubResource("GradientTexture2D_gmgay")
