@@ -1,17 +1,15 @@
 extends CharacterBody2D
 class_name Player
 
-@export var use_tween = false
 var movement_step = 64
-var initial_pos: Vector2
+var respawn_position: Vector2
 var movement_ongoing = false
-var movement_tween: Tween
 var distance_travelled: float = 0
 var movement_start_position: float = 0
 var is_moving: bool = false
 
 func _ready():
-	initial_pos = global_position
+	respawn_position = global_position
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("move") and not is_moving:
@@ -33,7 +31,5 @@ func respawn():
 	var particles = $CPUParticles2D.duplicate()
 	get_parent().add_child(particles)
 	particles.global_position = $CPUParticles2D.global_position
-	if use_tween:
-		movement_tween.kill()
-	global_position = initial_pos
+	global_position = respawn_position
 	particles.emitting = true
