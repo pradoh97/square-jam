@@ -17,3 +17,4 @@ func _on_looper_timeout():
 		$Music2.play()
 	else:
 		$Music.play()
+	$Looper.start()
