@@ -35,8 +35,11 @@ position = Vector2(32, -32)
 [node name="CheckPoint2" parent="CheckPoints" instance=ExtResource("10_4n8tn")]
 position = Vector2(608, -32)
 
+[node name="CheckPoint3" parent="CheckPoints" instance=ExtResource("10_4n8tn")]
+position = Vector2(1120, -32)
+
 [node name="Player" parent="." instance=ExtResource("1_46lwt")]
-position = Vector2(-544, -32)
+position = Vector2(608, -32)
 
 [node name="Blacks" type="Timer" parent="."]
 autostart = true
@@ -71,7 +74,6 @@ active = true
 [node name="Wall2" parent="Hazards" instance=ExtResource("7_4n8tn")]
 rotation = 3.1415927
 active = true
-downwards_movement = true
 
 [node name="Wall4" parent="Hazards" instance=ExtResource("7_4n8tn")]
 position = Vector2(320, 0)
@@ -88,6 +90,49 @@ active = true
 position = Vector2(128, -128)
 rotation = 3.1415927
 downwards_movement = true
+
+[node name="Wall5" parent="Hazards" instance=ExtResource("7_4n8tn")]
+position = Vector2(704, 0)
+rotation = 3.1415927
+active = true
+
+[node name="Spike6" parent="Hazards" instance=ExtResource("7_ly3hx")]
+position = Vector2(768, -128)
+rotation = 3.1415927
+downwards_movement = true
+
+[node name="Spike7" parent="Hazards" instance=ExtResource("7_ly3hx")]
+position = Vector2(832, -64)
+rotation = 3.1415927
+active = true
+downwards_movement = true
+
+[node name="Spike8" parent="Hazards" instance=ExtResource("7_ly3hx")]
+position = Vector2(896, -128)
+rotation = 3.1415927
+downwards_movement = true
+
+[node name="Spike9" parent="Hazards" instance=ExtResource("7_ly3hx")]
+position = Vector2(960, -64)
+rotation = 3.1415927
+active = true
+downwards_movement = true
+
+[node name="Spike10" parent="Hazards" instance=ExtResource("7_ly3hx")]
+position = Vector2(1024, -128)
+rotation = 3.1415927
+downwards_movement = true
+
+[node name="Spike11" parent="Hazards" instance=ExtResource("7_ly3hx")]
+position = Vector2(1088, -64)
+rotation = 3.1415927
+active = true
+downwards_movement = true
+
+[node name="Spike12" parent="Hazards" instance=ExtResource("7_ly3hx")]
+position = Vector2(1024, 0)
+rotation = 6.2831855
+active = true
 
 [node name="Spike5" parent="Hazards" instance=ExtResource("7_ly3hx")]
 position = Vector2(-320, -128)
