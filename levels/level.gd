@@ -7,6 +7,8 @@ class_name Level
 var blacks_duration: float = 0.0
 
 func _ready():
+	$Grid.visible = true
+	$UI.visible = true
 	$Player/Camera2D.limit_enabled = true
 	$Player/Camera2D.limit_left = screen_left_limit
 	var seconds_in_minute = 60
@@ -21,6 +23,7 @@ func _ready():
 	for section: LevelSection in $LevelSections.get_children():
 		section.connect_hazards_to_beat(blacks_duration, $Blacks)
 		section.register_checkpoints($Player)
+	$Timer.timeout.connect(func(): %TimeElapsed.text = str(int(%TimeElapsed.text) + 1))
 
 func get_player() -> Player:
 	return $Player
