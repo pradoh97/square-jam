@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://yjx67y2cqi8c"]
+[gd_scene load_steps=10 format=3 uid="uid://yjx67y2cqi8c"]
 
 [ext_resource type="Script" uid="uid://cmn1wcajj8cau" path="res://levels/level.gd" id="1_xctyr"]
 [ext_resource type="PackedScene" uid="uid://cbhw7ke4rkgcb" path="res://helpers/grid.tscn" id="2_18dot"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://o3078tpyrg2" path="res://helpers/compass_feedback.tscn" id="4_21gvb"]
 [ext_resource type="PackedScene" uid="uid://dodaer6dcobqc" path="res://helpers/looping_music.tscn" id="5_tn4ko"]
 [ext_resource type="PackedScene" uid="uid://biq0ohlo14sy3" path="res://levels/test_level/section1.tscn" id="6_v7owi"]
+[ext_resource type="PackedScene" uid="uid://6xht4kp53oug" path="res://levels/test_level/section_2.tscn" id="7_18dot"]
 
 [sub_resource type="Gradient" id="Gradient_srpys"]
 offsets = PackedFloat32Array(0)
@@ -19,18 +20,40 @@ script = ExtResource("1_xctyr")
 bpm = 106.0
 
 [node name="LevelCenter" type="Marker2D" parent="."]
+visible = false
 position = Vector2(0, -32)
 
 [node name="Grid" parent="." instance=ExtResource("2_18dot")]
+visible = false
+
+[node name="LevelSections" type="Node2D" parent="."]
+
+[node name="Section1" parent="LevelSections" instance=ExtResource("6_v7owi")]
+position = Vector2(64, 0)
+
+[node name="Section2" parent="LevelSections" instance=ExtResource("7_18dot")]
+position = Vector2(2624, 0)
 
 [node name="Player" parent="." instance=ExtResource("3_v1acv")]
-position = Vector2(736, -32)
+position = Vector2(1440, -32)
 
 [node name="Blacks" type="Timer" parent="."]
 autostart = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = -1
+visible = false
+
+[node name="TimeElapsed" type="Label" parent="UI"]
+unique_name_in_owner = true
+z_index = 1
+offset_left = 12.0
+offset_top = 5.0
+offset_right = 52.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "0"
 
 [node name="Background" type="TextureRect" parent="UI"]
 anchors_preset = 15
@@ -44,8 +67,7 @@ texture = SubResource("GradientTexture1D_46lwt")
 position = Vector2(576, 320)
 
 [node name="LoopingMusic" parent="." instance=ExtResource("5_tn4ko")]
+visible = false
 
-[node name="LevelSections" type="Node2D" parent="."]
-
-[node name="LevelSection" parent="LevelSections" instance=ExtResource("6_v7owi")]
-position = Vector2(64, 0)
+[node name="Timer" type="Timer" parent="."]
+autostart = true

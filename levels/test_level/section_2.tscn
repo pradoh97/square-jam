@@ -1,0 +1,271 @@
+[gd_scene load_steps=5 format=3 uid="uid://6xht4kp53oug"]
+
+[ext_resource type="PackedScene" uid="uid://bv607xcadh3bp" path="res://helpers/level_section.tscn" id="1_2fprx"]
+[ext_resource type="PackedScene" uid="uid://c2fkf2drct4ko" path="res://hazards/spike.tscn" id="2_nx17a"]
+[ext_resource type="PackedScene" uid="uid://85gnfaw3qhht" path="res://checkpoint/check_point.tscn" id="3_6jewo"]
+[ext_resource type="PackedScene" uid="uid://v31f22m5y1nt" path="res://hazards/wall.tscn" id="3_d410u"]
+
+[node name="Section2" instance=ExtResource("1_2fprx")]
+
+[node name="Spike5" parent="Hazards" index="0" instance=ExtResource("2_nx17a")]
+position = Vector2(576, 0)
+active = true
+downwards_movement = true
+off_beat = true
+
+[node name="Spike6" parent="Hazards" index="1" instance=ExtResource("2_nx17a")]
+position = Vector2(576, 64)
+
+[node name="Spike7" parent="Hazards" index="2" instance=ExtResource("2_nx17a")]
+position = Vector2(704, 0)
+active = true
+downwards_movement = true
+off_beat = true
+
+[node name="Spike8" parent="Hazards" index="3" instance=ExtResource("2_nx17a")]
+position = Vector2(704, 64)
+
+[node name="Spike9" parent="Hazards" index="4" instance=ExtResource("2_nx17a")]
+position = Vector2(832, 0)
+active = true
+downwards_movement = true
+off_beat = true
+
+[node name="Spike10" parent="Hazards" index="5" instance=ExtResource("2_nx17a")]
+position = Vector2(832, 64)
+
+[node name="Spike" parent="Hazards" index="6" instance=ExtResource("2_nx17a")]
+position = Vector2(64, 0)
+active = true
+off_beat = true
+
+[node name="Spike2" parent="Hazards" index="7" instance=ExtResource("2_nx17a")]
+active = true
+
+[node name="Spike3" parent="Hazards" index="8" instance=ExtResource("2_nx17a")]
+position = Vector2(256, 0)
+active = true
+off_beat = true
+
+[node name="Spike4" parent="Hazards" index="9" instance=ExtResource("2_nx17a")]
+position = Vector2(192, 0)
+active = true
+
+[node name="Spike11" parent="Hazards" index="10" instance=ExtResource("2_nx17a")]
+position = Vector2(448, 0)
+active = true
+off_beat = true
+
+[node name="Spike12" parent="Hazards" index="11" instance=ExtResource("2_nx17a")]
+position = Vector2(384, 0)
+active = true
+
+[node name="Spike13" parent="Hazards" index="12" instance=ExtResource("2_nx17a")]
+position = Vector2(1536, 0)
+active = true
+downwards_movement = true
+off_beat = true
+
+[node name="Spike14" parent="Hazards" index="13" instance=ExtResource("2_nx17a")]
+position = Vector2(1536, 64)
+
+[node name="Spike15" parent="Hazards" index="14" instance=ExtResource("2_nx17a")]
+position = Vector2(1664, 0)
+active = true
+downwards_movement = true
+off_beat = true
+
+[node name="Spike16" parent="Hazards" index="15" instance=ExtResource("2_nx17a")]
+position = Vector2(1664, 64)
+
+[node name="Spike17" parent="Hazards" index="16" instance=ExtResource("2_nx17a")]
+position = Vector2(1792, 0)
+active = true
+downwards_movement = true
+off_beat = true
+
+[node name="Spike18" parent="Hazards" index="17" instance=ExtResource("2_nx17a")]
+position = Vector2(1792, 64)
+
+[node name="Spike19" parent="Hazards" index="18" instance=ExtResource("2_nx17a")]
+position = Vector2(1024, 0)
+active = true
+off_beat = true
+
+[node name="Spike20" parent="Hazards" index="19" instance=ExtResource("2_nx17a")]
+position = Vector2(960, 0)
+active = true
+
+[node name="Spike21" parent="Hazards" index="20" instance=ExtResource("2_nx17a")]
+position = Vector2(1216, 0)
+active = true
+off_beat = true
+
+[node name="Spike22" parent="Hazards" index="21" instance=ExtResource("2_nx17a")]
+position = Vector2(1152, 0)
+active = true
+
+[node name="Spike23" parent="Hazards" index="22" instance=ExtResource("2_nx17a")]
+position = Vector2(1408, 0)
+active = true
+off_beat = true
+
+[node name="Spike24" parent="Hazards" index="23" instance=ExtResource("2_nx17a")]
+position = Vector2(1344, 0)
+active = true
+
+[node name="Spike25" parent="Hazards" index="24" instance=ExtResource("2_nx17a")]
+position = Vector2(2368, 0)
+active = true
+
+[node name="Wall" parent="Hazards" index="25" instance=ExtResource("3_d410u")]
+position = Vector2(1920, 0)
+
+[node name="Wall2" parent="Hazards" index="26" instance=ExtResource("3_d410u")]
+position = Vector2(2048, 0)
+rotation = -3.1415927
+active = true
+downwards_movement = true
+
+[node name="Wall7" parent="Hazards" index="27" instance=ExtResource("3_d410u")]
+position = Vector2(2176, 0)
+rotation = -3.1415927
+active = true
+downwards_movement = true
+
+[node name="Wall3" parent="Hazards" index="28" instance=ExtResource("3_d410u")]
+position = Vector2(2048, 0)
+
+[node name="Wall5" parent="Hazards" index="29" instance=ExtResource("3_d410u")]
+position = Vector2(2304, -96)
+active = true
+off_beat = true
+
+[node name="Wall6" parent="Hazards" index="30" instance=ExtResource("3_d410u")]
+position = Vector2(2368, 32)
+rotation = 3.1415927
+active = true
+downwards_movement = true
+off_beat = true
+
+[node name="Wall8" parent="Hazards" index="31" instance=ExtResource("3_d410u")]
+position = Vector2(2240, 0)
+active = true
+
+[node name="Wall9" parent="Hazards" index="32" instance=ExtResource("3_d410u")]
+position = Vector2(2304, 0)
+rotation = 3.1415927
+active = true
+downwards_movement = true
+
+[node name="Wall10" parent="Hazards" index="33" instance=ExtResource("3_d410u")]
+position = Vector2(2432, -96)
+active = true
+off_beat = true
+
+[node name="Wall11" parent="Hazards" index="34" instance=ExtResource("3_d410u")]
+position = Vector2(2496, 32)
+rotation = 3.1415927
+active = true
+downwards_movement = true
+off_beat = true
+
+[node name="Spike26" parent="Hazards" index="35" instance=ExtResource("2_nx17a")]
+position = Vector2(2688, 0)
+active = true
+
+[node name="Spike27" parent="Hazards" index="36" instance=ExtResource("2_nx17a")]
+position = Vector2(3328, 0)
+active = true
+
+[node name="Wall12" parent="Hazards" index="37" instance=ExtResource("3_d410u")]
+position = Vector2(2624, -96)
+active = true
+off_beat = true
+
+[node name="Wall13" parent="Hazards" index="38" instance=ExtResource("3_d410u")]
+position = Vector2(2688, 32)
+rotation = 3.1415927
+active = true
+downwards_movement = true
+off_beat = true
+
+[node name="Wall25" parent="Hazards" index="39" instance=ExtResource("3_d410u")]
+position = Vector2(2560, 0)
+active = true
+
+[node name="Wall26" parent="Hazards" index="40" instance=ExtResource("3_d410u")]
+position = Vector2(2624, 0)
+rotation = 3.1415927
+active = true
+downwards_movement = true
+
+[node name="Wall27" parent="Hazards" index="41" instance=ExtResource("3_d410u")]
+position = Vector2(2752, -96)
+active = true
+off_beat = true
+
+[node name="Wall28" parent="Hazards" index="42" instance=ExtResource("3_d410u")]
+position = Vector2(2816, 32)
+rotation = 3.1415927
+active = true
+downwards_movement = true
+off_beat = true
+
+[node name="Wall4" parent="Hazards" index="43" instance=ExtResource("3_d410u")]
+position = Vector2(2880, 0)
+
+[node name="Wall14" parent="Hazards" index="44" instance=ExtResource("3_d410u")]
+position = Vector2(3008, 0)
+rotation = -3.1415927
+active = true
+downwards_movement = true
+
+[node name="Wall15" parent="Hazards" index="45" instance=ExtResource("3_d410u")]
+position = Vector2(3136, 0)
+rotation = -3.1415927
+active = true
+downwards_movement = true
+
+[node name="Wall16" parent="Hazards" index="46" instance=ExtResource("3_d410u")]
+position = Vector2(3008, 0)
+
+[node name="Wall17" parent="Hazards" index="47" instance=ExtResource("3_d410u")]
+position = Vector2(3264, -96)
+active = true
+off_beat = true
+
+[node name="Wall18" parent="Hazards" index="48" instance=ExtResource("3_d410u")]
+position = Vector2(3328, 32)
+rotation = 3.1415927
+active = true
+downwards_movement = true
+off_beat = true
+
+[node name="Wall19" parent="Hazards" index="49" instance=ExtResource("3_d410u")]
+position = Vector2(3200, 0)
+active = true
+
+[node name="Wall20" parent="Hazards" index="50" instance=ExtResource("3_d410u")]
+position = Vector2(3264, 0)
+rotation = 3.1415927
+active = true
+downwards_movement = true
+
+[node name="Wall21" parent="Hazards" index="51" instance=ExtResource("3_d410u")]
+position = Vector2(3392, -96)
+active = true
+off_beat = true
+
+[node name="Wall22" parent="Hazards" index="52" instance=ExtResource("3_d410u")]
+position = Vector2(3456, 32)
+rotation = 3.1415927
+active = true
+downwards_movement = true
+off_beat = true
+
+[node name="CheckPoint" parent="Checkpoints" index="0" instance=ExtResource("3_6jewo")]
+position = Vector2(1888, -32)
+
+[node name="CheckPoint2" parent="Checkpoints" index="1" instance=ExtResource("3_6jewo")]
+position = Vector2(3488, -32)

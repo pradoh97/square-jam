@@ -15,56 +15,126 @@ active = true
 position = Vector2(128, -192)
 downwards_movement = true
 
-[node name="Wall3" parent="Hazards" index="2" instance=ExtResource("2_6l26t")]
+[node name="Wall5" parent="Hazards" index="2" instance=ExtResource("2_6l26t")]
+position = Vector2(192, 0)
+
+[node name="Wall6" parent="Hazards" index="3" instance=ExtResource("2_6l26t")]
+position = Vector2(320, -128)
+active = true
+downwards_movement = true
+
+[node name="Wall3" parent="Hazards" index="4" instance=ExtResource("2_6l26t")]
+position = Vector2(1408, -128)
+active = true
+downwards_movement = true
+
+[node name="Wall4" parent="Hazards" index="5" instance=ExtResource("2_6l26t")]
+position = Vector2(1856, 0)
+
+[node name="Spike" parent="Hazards" index="6" instance=ExtResource("3_rfcc2")]
+position = Vector2(448, 0)
+active = true
+
+[node name="Spike2" parent="Hazards" index="7" instance=ExtResource("3_rfcc2")]
 position = Vector2(704, -128)
-active = true
-downwards_movement = true
-
-[node name="Wall4" parent="Hazards" index="3" instance=ExtResource("2_6l26t")]
-position = Vector2(1152, 0)
-
-[node name="Spike" parent="Hazards" index="4" instance=ExtResource("3_rfcc2")]
-position = Vector2(256, 0)
-active = true
-
-[node name="Spike2" parent="Hazards" index="5" instance=ExtResource("3_rfcc2")]
-position = Vector2(512, -128)
 rotation = -3.1415927
 downwards_movement = true
 
-[node name="Spike3" parent="Hazards" index="6" instance=ExtResource("3_rfcc2")]
-position = Vector2(576, 0)
+[node name="Spike11" parent="Hazards" index="8" instance=ExtResource("3_rfcc2")]
+position = Vector2(448, 0)
 active = true
 
-[node name="Spike4" parent="Hazards" index="7" instance=ExtResource("3_rfcc2")]
-position = Vector2(640, -64)
+[node name="Spike23" parent="Hazards" index="9" instance=ExtResource("3_rfcc2")]
+position = Vector2(832, 0)
+active = true
+
+[node name="Spike12" parent="Hazards" index="10" instance=ExtResource("3_rfcc2")]
+position = Vector2(704, -128)
 rotation = -3.1415927
+downwards_movement = true
+
+[node name="Spike3" parent="Hazards" index="11" instance=ExtResource("3_rfcc2")]
+position = Vector2(768, 64)
+
+[node name="Spike4" parent="Hazards" index="12" instance=ExtResource("3_rfcc2")]
+position = Vector2(832, -128)
+rotation = -3.1415927
+downwards_movement = true
+
+[node name="Spike13" parent="Hazards" index="13" instance=ExtResource("3_rfcc2")]
+position = Vector2(960, 0)
+active = true
+off_beat = true
+
+[node name="Spike14" parent="Hazards" index="14" instance=ExtResource("3_rfcc2")]
+position = Vector2(1216, -128)
+rotation = -3.1415927
+downwards_movement = true
+off_beat = true
+
+[node name="Spike17" parent="Hazards" index="15" instance=ExtResource("3_rfcc2")]
+position = Vector2(1280, 64)
+off_beat = true
+
+[node name="Spike18" parent="Hazards" index="16" instance=ExtResource("3_rfcc2")]
+position = Vector2(1344, -128)
+rotation = -3.1415927
+downwards_movement = true
+off_beat = true
+
+[node name="Spike5" parent="Hazards" index="17" instance=ExtResource("3_rfcc2")]
+position = Vector2(1472, 0)
+active = true
+
+[node name="Spike6" parent="Hazards" index="18" instance=ExtResource("3_rfcc2")]
+position = Vector2(1536, 64)
+
+[node name="Spike7" parent="Hazards" index="19" instance=ExtResource("3_rfcc2")]
+position = Vector2(1600, 0)
+active = true
+
+[node name="Spike8" parent="Hazards" index="20" instance=ExtResource("3_rfcc2")]
+position = Vector2(1664, 64)
+
+[node name="Spike9" parent="Hazards" index="21" instance=ExtResource("3_rfcc2")]
+position = Vector2(1728, 0)
+active = true
+
+[node name="Spike10" parent="Hazards" index="22" instance=ExtResource("3_rfcc2")]
+position = Vector2(1792, 64)
+
+[node name="Wall7" parent="Hazards" index="23" instance=ExtResource("2_6l26t")]
+position = Vector2(1984, -128)
 active = true
 downwards_movement = true
 
-[node name="Spike5" parent="Hazards" index="8" instance=ExtResource("3_rfcc2")]
-position = Vector2(768, 0)
+[node name="Wall8" parent="Hazards" index="24" instance=ExtResource("2_6l26t")]
+position = Vector2(2432, -64)
 active = true
 
-[node name="Spike6" parent="Hazards" index="9" instance=ExtResource("3_rfcc2")]
-position = Vector2(832, 64)
+[node name="Spike15" parent="Hazards" index="25" instance=ExtResource("3_rfcc2")]
+position = Vector2(2048, 64)
 
-[node name="Spike7" parent="Hazards" index="10" instance=ExtResource("3_rfcc2")]
-position = Vector2(896, 0)
+[node name="Spike16" parent="Hazards" index="26" instance=ExtResource("3_rfcc2")]
+position = Vector2(2112, 0)
 active = true
 
-[node name="Spike8" parent="Hazards" index="11" instance=ExtResource("3_rfcc2")]
-position = Vector2(960, 64)
+[node name="Spike19" parent="Hazards" index="27" instance=ExtResource("3_rfcc2")]
+position = Vector2(2176, 64)
 
-[node name="Spike9" parent="Hazards" index="12" instance=ExtResource("3_rfcc2")]
-position = Vector2(1024, 0)
+[node name="Spike20" parent="Hazards" index="28" instance=ExtResource("3_rfcc2")]
+position = Vector2(2240, 0)
 active = true
 
-[node name="Spike10" parent="Hazards" index="13" instance=ExtResource("3_rfcc2")]
-position = Vector2(1088, 64)
+[node name="Spike21" parent="Hazards" index="29" instance=ExtResource("3_rfcc2")]
+position = Vector2(2304, 64)
+
+[node name="Spike22" parent="Hazards" index="30" instance=ExtResource("3_rfcc2")]
+position = Vector2(2368, 0)
+active = true
 
 [node name="CheckPoint" parent="Checkpoints" index="0" instance=ExtResource("6_m66kn")]
-position = Vector2(672, -32)
+position = Vector2(1376, -32)
 
 [node name="CheckPoint2" parent="Checkpoints" index="1" instance=ExtResource("6_m66kn")]
-position = Vector2(1248, -32)
+position = Vector2(2528, -32)
