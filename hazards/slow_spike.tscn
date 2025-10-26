@@ -19,3 +19,6 @@ shape = SubResource("ConvexPolygonShape2D_aa4rj")
 [node name="ForgivenessAttackTimer" type="Timer" parent="."]
 
 [node name="ForgivenessReleaseTimer" type="Timer" parent="."]
+
+[node name="OffBeatTimer" type="Timer" parent="."]
+one_shot = true

@@ -31,3 +31,6 @@ shape = SubResource("RectangleShape2D_x25rp")
 [node name="ForgivenessAttackTimer" type="Timer" parent="."]
 
 [node name="ForgivenessReleaseTimer" type="Timer" parent="."]
+
+[node name="OffBeatTimer" type="Timer" parent="."]
+one_shot = true

@@ -1,10 +1,11 @@
 extends Area2D
 class_name Hazard
 
-@export var movement_step = 64
-@export var forgiveness = 0.1
 @export var active = false
 @export var downwards_movement = false
+@export var off_beat = false
+@export var movement_step = 64
+@export var forgiveness = 0.1
 @export var required_beats: float = 1.0
 
 var movement_direction = 1
@@ -16,6 +17,7 @@ func _ready():
 		movement_direction = -1
 	$ForgivenessAttackTimer.timeout.connect(func(): $CollisionShape2D.set_deferred("disabled", false))
 	$ForgivenessReleaseTimer.timeout.connect(func(): $CollisionShape2D.set_deferred("disabled", true))
+	$OffBeatTimer.timeout.connect(_on_off_beat_timer_timeout)
 	body_entered.connect(_on_body_entered)
 
 	if active:
@@ -43,14 +45,25 @@ func set_timers():
 	$ForgivenessAttackTimer.one_shot = true
 	$ForgivenessReleaseTimer.wait_time = required_beats*blacks_duration - blacks_duration*forgiveness*required_beats
 	$ForgivenessReleaseTimer.one_shot = true
+	$OffBeatTimer.wait_time = blacks_duration / 2
+
+func initiate_movement():
+	move()
+	if active:
+		$ForgivenessReleaseTimer.start()
 
 func _on_blacks_timeout():
 	current_beat += 1
 	if current_beat == required_beats:
 		current_beat = 0
-		move()
-		if active:
-			$ForgivenessReleaseTimer.start()
+		if not off_beat:
+			initiate_movement()
+		else:
+			$OffBeatTimer.start()
 
 func _on_body_entered(body):
 	(body as Player).respawn()
+
+
+func _on_off_beat_timer_timeout():
+	initiate_movement()

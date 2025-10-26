@@ -24,10 +24,12 @@ texture = SubResource("GradientTexture2D_gmgay")
 polygon = PackedVector2Array(0, 0, 64, 0, 64, 128, 0, 128)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(32, 64)
 shape = SubResource("RectangleShape2D_x25rp")
 
 [node name="ForgivenessAttackTimer" type="Timer" parent="."]
 
 [node name="ForgivenessReleaseTimer" type="Timer" parent="."]
+
+[node name="OffBeatTimer" type="Timer" parent="."]
+one_shot = true
