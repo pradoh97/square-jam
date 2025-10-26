@@ -7,9 +7,11 @@ modulate = Color(1, 1, 1, 0.21960784)
 script = ExtResource("1_613nu")
 
 [node name="HorizontalLine" type="Line2D" parent="."]
+position = Vector2(576, 0)
 points = PackedVector2Array(-576, -324, -576, 324)
 width = 2.0
 
 [node name="VerticalLine" type="Line2D" parent="."]
+position = Vector2(576, 0)
 points = PackedVector2Array(577, -320, -577, -320)
 width = 2.0
