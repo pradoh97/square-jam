@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://yjx67y2cqi8c"]
+
+[ext_resource type="Script" uid="uid://cmn1wcajj8cau" path="res://levels/level.gd" id="1_xctyr"]
+[ext_resource type="PackedScene" uid="uid://cbhw7ke4rkgcb" path="res://helpers/grid.tscn" id="2_18dot"]
+[ext_resource type="PackedScene" uid="uid://doepcn6153ad7" path="res://player/player.tscn" id="3_v1acv"]
+[ext_resource type="PackedScene" uid="uid://o3078tpyrg2" path="res://helpers/compass_feedback.tscn" id="4_21gvb"]
+[ext_resource type="PackedScene" uid="uid://dodaer6dcobqc" path="res://helpers/looping_music.tscn" id="5_tn4ko"]
+[ext_resource type="PackedScene" uid="uid://biq0ohlo14sy3" path="res://levels/test_level/section1.tscn" id="6_v7owi"]
+
+[sub_resource type="Gradient" id="Gradient_srpys"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_46lwt"]
+gradient = SubResource("Gradient_srpys")
+
+[node name="TestLevel" type="Node2D"]
+script = ExtResource("1_xctyr")
+bpm = 106.0
+
+[node name="LevelCenter" type="Marker2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="Grid" parent="." instance=ExtResource("2_18dot")]
+
+[node name="Player" parent="." instance=ExtResource("3_v1acv")]
+position = Vector2(736, -32)
+
+[node name="Blacks" type="Timer" parent="."]
+autostart = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_46lwt")
+
+[node name="CompassFeedback" parent="UI" instance=ExtResource("4_21gvb")]
+position = Vector2(576, 320)
+
+[node name="LoopingMusic" parent="." instance=ExtResource("5_tn4ko")]
+
+[node name="LevelSections" type="Node2D" parent="."]
+
+[node name="LevelSection" parent="LevelSections" instance=ExtResource("6_v7owi")]
+position = Vector2(64, 0)
