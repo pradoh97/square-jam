@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Square Jam"
-run/main_scene="uid://yjx67y2cqi8c"
+run/main_scene="uid://c75cf2g47606s"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/mode=3
 
 [input]
 

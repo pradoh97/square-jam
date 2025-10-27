@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://c75cf2g47606s"]
+
+[ext_resource type="Script" uid="uid://dre6mq2ca6lfe" path="res://levels/start_screen.gd" id="1_ae6xm"]
+[ext_resource type="PackedScene" uid="uid://yjx67y2cqi8c" path="res://levels/test_level/test_level.tscn" id="2_ntpvs"]
+
+[node name="StartScreen" type="Node2D"]
+script = ExtResource("1_ae6xm")
+level_scene = ExtResource("2_ntpvs")
+
+[node name="Tutorial" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Tutorial"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47007585, 0.47007585, 0.47007585, 0.69411767)
+
+[node name="CenterContainer" type="CenterContainer" parent="Tutorial"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tutorial/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Tutorial/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "You can only move to the right.
+
+Use SPACE, D or the right arrow to move. 
+
+Follow the beat :)"
+
+[node name="CenterContainer" type="CenterContainer" parent="Tutorial/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Tutorial/CenterContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "    Start    "
+
+[connection signal="pressed" from="Tutorial/CenterContainer/VBoxContainer/CenterContainer/Button" to="." method="_on_button_pressed"]
