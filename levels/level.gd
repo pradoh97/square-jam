@@ -17,6 +17,7 @@ func _ready():
 
 	$UI/CompassFeedback.set_blacks_duration(blacks_duration)
 	$Blacks.timeout.connect($UI/CompassFeedback._on_blacks_timeout)
+	$Blacks.timeout.connect($Background/Grid._on_blacks_timeout)
 	$Blacks.timeout.connect($Player._on_blacks_timeout)
 
 	%Grid.draw(movement_step)
@@ -25,7 +26,6 @@ func _ready():
 		section.connect_hazards_to_beat(blacks_duration, $Blacks)
 		section.register_checkpoints($Player)
 	$Timer.timeout.connect(func(): %TimeElapsed.text = str(int(%TimeElapsed.text) + 1))
-	$Blacks.timeout.emit()
 
 func get_player() -> Player:
 	return $Player
