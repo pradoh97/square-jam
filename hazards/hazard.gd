@@ -38,7 +38,7 @@ func move():
 	elif not active:
 		tween.set_ease(Tween.EASE_OUT)
 		tween.set_trans(Tween.TRANS_QUINT)
-		tween.tween_property(self, "global_position:y", global_position.y + movement_direction*movement_step, blacks_duration)
+		tween.tween_property(self, "global_position:y", global_position.y + movement_direction*movement_step, blacks_duration*forgiveness)
 
 func set_timers():
 	$ForgivenessAttackTimer.wait_time = blacks_duration*forgiveness
