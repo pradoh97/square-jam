@@ -2,16 +2,28 @@
 
 [ext_resource type="Script" uid="uid://vxjlfc17d6vb" path="res://helpers/grid/grid.gd" id="1_613nu"]
 
-[node name="Grid" type="Node2D"]
+[node name="Grid" type="Control"]
 modulate = Color(1, 1, 1, 0.21960784)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_613nu")
 
-[node name="HorizontalLine" type="Line2D" parent="."]
-position = Vector2(576, 0)
-points = PackedVector2Array(-576, -324, -576, 324)
-width = 2.0
+[node name="HorizontalLine" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+color = Color(0.728822, 0.728822, 0.728822, 1)
 
-[node name="VerticalLine" type="Line2D" parent="."]
-position = Vector2(576, 0)
-points = PackedVector2Array(577, -320, -577, -320)
-width = 2.0
+[node name="VerticalLine" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 2.0
+grow_vertical = 2
+color = Color(0.69135684, 0.6913568, 0.69135684, 1)
