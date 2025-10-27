@@ -10,6 +10,8 @@ var is_moving: bool = false
 
 func _ready():
 	respawn_position = global_position
+	set_physics_process(false)
+	
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("move") and not is_moving:
@@ -33,3 +35,6 @@ func respawn():
 	particles.global_position = $CPUParticles2D.global_position
 	global_position = respawn_position
 	particles.emitting = true
+
+func _on_blacks_timeout():
+	set_physics_process(true)
