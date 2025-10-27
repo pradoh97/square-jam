@@ -32,13 +32,13 @@ func move():
 	if active:
 		tween.set_ease(Tween.EASE_OUT)
 		tween.set_trans(Tween.TRANS_QUINT)
-		tween.tween_property(self, "global_position:y", global_position.y - movement_direction*movement_step, blacks_duration*forgiveness)
+		tween.tween_property(self, "global_position:y", global_position.y - movement_direction*movement_step, blacks_duration)
 		$ForgivenessAttackTimer.start()
 		$CollisionShape2D.set_deferred("disabled", true)
 	elif not active:
 		tween.set_ease(Tween.EASE_OUT)
 		tween.set_trans(Tween.TRANS_QUINT)
-		tween.tween_property(self, "global_position:y", global_position.y + movement_direction*movement_step, blacks_duration*forgiveness)
+		tween.tween_property(self, "global_position:y", global_position.y + movement_direction*movement_step, blacks_duration)
 
 func set_timers():
 	$ForgivenessAttackTimer.wait_time = blacks_duration*forgiveness
