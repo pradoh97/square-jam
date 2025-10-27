@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv607xcadh3bp"]
+
+[ext_resource type="Script" uid="uid://blehcjfy223sl" path="res://helpers/level_section/level_section.gd" id="1_lmea7"]
+
+[node name="LevelSection" type="Node2D"]
+script = ExtResource("1_lmea7")
+
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="Checkpoints" type="Node2D" parent="."]

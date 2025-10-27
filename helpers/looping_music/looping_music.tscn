@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dodaer6dcobqc"]
 
-[ext_resource type="Script" uid="uid://2aeyipefdu5c" path="res://helpers/looping_music.gd" id="1_tjyhv"]
+[ext_resource type="Script" uid="uid://2aeyipefdu5c" path="res://helpers/looping_music/looping_music.gd" id="1_tjyhv"]
 [ext_resource type="AudioStream" uid="uid://bo885q0fx5f8b" path="res://running-night-393139.mp3" id="2_2klff"]
 
 [node name="LoopingMusic" type="Node2D"]

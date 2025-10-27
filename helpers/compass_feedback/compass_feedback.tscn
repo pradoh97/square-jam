@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://o3078tpyrg2"]
 
-[ext_resource type="Script" uid="uid://buq02kmcuechh" path="res://helpers/compass_feedback.gd" id="1_de0eh"]
+[ext_resource type="Script" uid="uid://buq02kmcuechh" path="res://helpers/compass_feedback/compass_feedback.gd" id="1_de0eh"]
 
 [node name="CompassFeedback" type="Node2D"]
 script = ExtResource("1_de0eh")
@@ -12,5 +12,7 @@ points = PackedVector2Array(512, -63.99994, 448, -63.99994)
 width = 5.0
 
 [node name="Static" type="Line2D" parent="."]
+position = Vector2(0, 3)
+scale = Vector2(1, 1.0090909)
 points = PackedVector2Array(-576, -320, -576, 320, 576, 320, 576, -320)
 closed = true

@@ -1,19 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2fkf2drct4ko"]
+[gd_scene load_steps=3 format=3 uid="uid://clqxyej8jsra3"]
 
-[ext_resource type="Script" uid="uid://4x76mhtiushj" path="res://hazards/hazard.gd" id="1_pkw3l"]
+[ext_resource type="Script" uid="uid://4x76mhtiushj" path="res://hazards/hazard.gd" id="1_aa4rj"]
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_pkw3l"]
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_aa4rj"]
 points = PackedVector2Array(0, 0, 32, -64, 64, 0)
 
-[node name="Spike" type="Area2D"]
-script = ExtResource("1_pkw3l")
-forgiveness = 0.15
+[node name="SlowSpike" type="Area2D"]
+script = ExtResource("1_aa4rj")
+required_beats = 4.0
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.51415366, 0.6794185, 1, 1)
 polygon = PackedVector2Array(32, -64, 0, 0, 64, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("ConvexPolygonShape2D_pkw3l")
+shape = SubResource("ConvexPolygonShape2D_aa4rj")
 
 [node name="ForgivenessAttackTimer" type="Timer" parent="."]
 

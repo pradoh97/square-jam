@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmwui5e8bj7q3"]
+
+[ext_resource type="PackedScene" uid="uid://c2fkf2drct4ko" path="res://hazards/spike.tscn" id="1_2p7vi"]
+
+[node name="TripletSilence" type="Node2D"]
+
+[node name="Spike" parent="." instance=ExtResource("1_2p7vi")]
+position = Vector2(128, 0)
+active = true
+off_beat = true
+
+[node name="Spike2" parent="." instance=ExtResource("1_2p7vi")]
+position = Vector2(64, 0)
+active = true
+
+[node name="Spike3" parent="." instance=ExtResource("1_2p7vi")]
+position = Vector2(320, 0)
+active = true
+off_beat = true
+
+[node name="Spike4" parent="." instance=ExtResource("1_2p7vi")]
+position = Vector2(256, 0)
+active = true
+
+[node name="Spike11" parent="." instance=ExtResource("1_2p7vi")]
+position = Vector2(512, 0)
+active = true
+off_beat = true
+
+[node name="Spike12" parent="." instance=ExtResource("1_2p7vi")]
+position = Vector2(448, 0)
+active = true
