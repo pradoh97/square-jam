@@ -36,8 +36,6 @@ texture = SubResource("GradientTexture1D_18dot")
 
 [node name="Grid" parent="Background" instance=ExtResource("2_18dot")]
 unique_name_in_owner = true
-offset_left = -4.0
-offset_right = -4.0
 
 [node name="LevelCenter" type="Marker2D" parent="."]
 visible = false
