@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cbhw7ke4rkgcb"]
 
-[ext_resource type="Script" uid="uid://vxjlfc17d6vb" path="res://helpers/grid.gd" id="1_613nu"]
+[ext_resource type="Script" uid="uid://vxjlfc17d6vb" path="res://helpers/grid/grid.gd" id="1_613nu"]
 
 [node name="Grid" type="Node2D"]
 modulate = Color(1, 1, 1, 0.21960784)

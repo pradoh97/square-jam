@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://6xht4kp53oug"]
 
-[ext_resource type="PackedScene" uid="uid://bv607xcadh3bp" path="res://helpers/level_section.tscn" id="1_2fprx"]
+[ext_resource type="PackedScene" uid="uid://bv607xcadh3bp" path="res://helpers/level_section/level_section.tscn" id="1_2fprx"]
 [ext_resource type="PackedScene" uid="uid://c2fkf2drct4ko" path="res://hazards/spike.tscn" id="2_nx17a"]
-[ext_resource type="PackedScene" uid="uid://85gnfaw3qhht" path="res://checkpoint/check_point.tscn" id="3_6jewo"]
+[ext_resource type="PackedScene" uid="uid://85gnfaw3qhht" path="res://helpers/checkpoint/check_point.tscn" id="3_6jewo"]
 [ext_resource type="PackedScene" uid="uid://v31f22m5y1nt" path="res://hazards/wall.tscn" id="3_d410u"]
 
 [node name="Section2" instance=ExtResource("1_2fprx")]

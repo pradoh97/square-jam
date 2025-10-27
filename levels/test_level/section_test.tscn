@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://cqkoh80tj5pj7"]
 
-[ext_resource type="PackedScene" uid="uid://bv607xcadh3bp" path="res://helpers/level_section.tscn" id="1_vatwb"]
+[ext_resource type="PackedScene" uid="uid://bv607xcadh3bp" path="res://helpers/level_section/level_section.tscn" id="1_vatwb"]
 [ext_resource type="PackedScene" uid="uid://v31f22m5y1nt" path="res://hazards/wall.tscn" id="2_6l26t"]
 [ext_resource type="PackedScene" uid="uid://c2fkf2drct4ko" path="res://hazards/spike.tscn" id="3_rfcc2"]
 [ext_resource type="PackedScene" uid="uid://clqxyej8jsra3" path="res://hazards/slow_spike.tscn" id="4_20ywr"]
 [ext_resource type="PackedScene" uid="uid://x8djwjm1fw50" path="res://hazards/quick_wall.tscn" id="5_4hkuo"]
-[ext_resource type="PackedScene" uid="uid://85gnfaw3qhht" path="res://checkpoint/check_point.tscn" id="6_m66kn"]
+[ext_resource type="PackedScene" uid="uid://85gnfaw3qhht" path="res://helpers/checkpoint/check_point.tscn" id="6_m66kn"]
 
 [node name="TestSection" instance=ExtResource("1_vatwb")]
 
