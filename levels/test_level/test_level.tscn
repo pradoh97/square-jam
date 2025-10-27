@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://yjx67y2cqi8c"]
+[gd_scene load_steps=13 format=3 uid="uid://yjx67y2cqi8c"]
 
 [ext_resource type="Script" uid="uid://cmn1wcajj8cau" path="res://levels/level.gd" id="1_xctyr"]
 [ext_resource type="PackedScene" uid="uid://cbhw7ke4rkgcb" path="res://helpers/grid/grid.tscn" id="2_18dot"]
@@ -14,6 +14,13 @@ colors = PackedColorArray(0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_18dot"]
 gradient = SubResource("Gradient_srpys")
+
+[sub_resource type="Gradient" id="Gradient_18dot"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.09345544, 0.5141308, 0.43737352, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v1acv"]
+gradient = SubResource("Gradient_18dot")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18dot"]
 size = Vector2(86, 280)
@@ -36,6 +43,7 @@ texture = SubResource("GradientTexture1D_18dot")
 
 [node name="Grid" parent="Background" instance=ExtResource("2_18dot")]
 unique_name_in_owner = true
+visible = false
 
 [node name="LevelCenter" type="Marker2D" parent="."]
 visible = false
@@ -43,6 +51,16 @@ position = Vector2(0, -32)
 
 [node name="Player" parent="." instance=ExtResource("3_v1acv")]
 position = Vector2(32, -32)
+
+[node name="Floor" type="Sprite2D" parent="."]
+position = Vector2(5632, 495.74997)
+scale = Vector2(44, 992.49994)
+texture = SubResource("GradientTexture1D_v1acv")
+
+[node name="Ceiling" type="Sprite2D" parent="."]
+position = Vector2(5632, -543.87494)
+scale = Vector2(44, 960.24994)
+texture = SubResource("GradientTexture1D_v1acv")
 
 [node name="LevelSections" type="Node2D" parent="."]
 

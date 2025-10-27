@@ -17,7 +17,7 @@ func _ready():
 
 	$UI/CompassFeedback.set_blacks_duration(blacks_duration)
 	$Blacks.timeout.connect($UI/CompassFeedback._on_blacks_timeout)
-	$Blacks.timeout.connect($Background/Grid._on_blacks_timeout)
+	$Blacks.timeout.connect(%Grid._on_blacks_timeout)
 	$Blacks.timeout.connect($Player._on_blacks_timeout)
 
 	%Grid.draw(movement_step)

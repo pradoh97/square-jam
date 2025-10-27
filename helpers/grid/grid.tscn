@@ -13,6 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_613nu")
 
 [node name="HorizontalLine" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -21,6 +22,7 @@ grow_horizontal = 2
 color = Color(0.728822, 0.728822, 0.728822, 1)
 
 [node name="VerticalLine" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
